@@ -1,10 +1,37 @@
 <template>
-  <section>
-    <coach-filter @change-filter="onChangeFilter"></coach-filter>
-  </section>
+  <n-carousel show-arrow autoplay>
+    <img
+      class="carousel-img"
+      src="https://s.anw.red/fav/1623979004.jpg!/fw/600/quality/77/ignore-error/true"
+    />
+    <img
+      class="carousel-img"
+      src="https://s.anw.red/news/1623372884.jpg!/both/800x450/quality/78/progressive/true/ignore-error/true"
+    />
+    <img
+      class="carousel-img"
+      src="https://s.anw.red/news/1623177220.jpg!/both/800x450/quality/78/progressive/true/ignore-error/true"
+    />
+    <img
+      class="carousel-img"
+      src="https://s.anw.red/news/1623152423.jpg!/both/800x450/quality/78/progressive/true/ignore-error/true"
+    />
+  </n-carousel>
+
+  <n-grid x-gap="12" :cols="3">
+    <n-gi :offset="1">
+      <div>
+        <n-card>
+          <coach-filter @change-filter="onChangeFilter"></coach-filter>
+        </n-card>
+      </div>
+    </n-gi>
+  </n-grid>
+
+  <n-divider />
 
   <section>
-    <base-card>
+    <n-card>
       <div class="controls">
         <base-button mode="outline">Refresh</base-button>
         <base-button v-if="!isAlreadyACoach" link to="/register"
@@ -23,7 +50,7 @@
         ></coach-item>
       </ul>
       <h3 v-else>No coaches found.</h3>
-    </base-card>
+    </n-card>
   </section>
 </template>
 
@@ -86,5 +113,11 @@ ul {
 .controls {
   display: flex;
   justify-content: space-between;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
 }
 </style>
